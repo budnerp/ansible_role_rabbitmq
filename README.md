@@ -19,13 +19,13 @@ Ansible role for RabbitMQ 3.7 for CentOS 7
 1. Navigate to Ansible's roles folder
 2. Add the repo to git modules
     ```
-    git submodule add https://github.com/budnerp/ansible_role_docker_rabbitmq.git ansible_role_docker_rabbitmq
+    git submodule add https://github.com/budnerp/ansible_role_rabbitmq.git ansible_role_rabbitmq
     ```
 3. Add the role to Ansible's playbook file
     ```    
     roles:
     [...]
-        - ansible_role_docker_rabbitmq
+        - ansible_role_rabbitmq
     [...]
     ```
 

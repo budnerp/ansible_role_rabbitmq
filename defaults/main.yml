@@ -1,0 +1,5 @@
+---
+# User and password to access to Management Console
+rabbitmq_user: admin
+rabbitmq_password: admin
+rabbitmq_user_tag: management

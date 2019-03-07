@@ -6,13 +6,25 @@ Ansible role for RabbitMQ 3.7 for CentOS 7
 2. Erlang 21.2
 3. Custom settings as per `defaults/main.yml`
 4. The server is set up to run as system user `rabbitmq`
-5. The management UI can be accessed using a Web browser at `http://{node-hostname}:15672/`. The default username and password are both set `guest`.
+5. The management UI can be accessed using a Web browser at `http://{node-hostname}:15672/` 
+eg. [http://webapp:15672/](). 
+6. The default username and password are both set `guest` but works for localhost only.
+7. New user `admin` with password `admin` is created and able to access Management tool.
 
-## Interesting dirs and files: 
+## Interesting dirs and files:
+- Logs 
     ```
-    ...
+    /var/log/rabbitmq/
+    /var/log/rabbitmq/rabbit@webapp.log - lot of usefull inforamtion
     ```
-   
+- Check RabbitMQ's status (as rabbitmq user or root)
+    ```
+    rabbitmqctl status
+    sudo rabbitmqctl status
+    ```
+How about:
+- configuration file ?
+
 ## Tested on
 
 ## Installation
@@ -32,6 +44,7 @@ Ansible role for RabbitMQ 3.7 for CentOS 7
 ## Other links
 - RabbitMQ [http://www.rabbitmq.com/]()
 - RabbitMQ Server on GitHub [https://github.com/rabbitmq/rabbitmq-server]()
+- Command Line Tools [https://www.rabbitmq.com/cli.html]()
 
 ## TO DO
 -[ ] add dependencies 

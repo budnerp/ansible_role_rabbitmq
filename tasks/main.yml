@@ -21,6 +21,21 @@
     command: rabbitmq-plugins enable rabbitmq_management
     when: rabbitmq_result.changed
 
+  - name: RABBITMQ - add a host `{{ansible_nodename}}`
+    command: rabbitmqctl add_vhost {{ansible_nodename}}
+    when: rabbitmq_result.changed
+
+  - name: RABBITMQ - create a user {{rabbitmq_user}}@{{ansible_nodename}} and set his permissions
+    rabbitmq_user:
+      user: "{{rabbitmq_user}}"
+      password: "{{rabbitmq_password}}"
+      tags: "{{rabbitmq_user_tag}}"
+      vhost: "{{ansible_nodename}}"
+      configure_priv: .*
+      read_priv: .*
+      write_priv: .*
+      state: present
+
 #  - debug:
 #      var: httpd_result
 
